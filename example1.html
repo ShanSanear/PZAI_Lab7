@@ -1,0 +1,158 @@
+
+<html>                                                                  
+<head>                                                                
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="text/javascript">   
+$(document).ready(function()
+{
+});                                           
+</script> 
+                                           
+</head>
+<body> 
+<p><b>Ka¿de zadanie oznaczone numerem musi zostaæ zakoñczone pojedynczym poleceniem jQuery.</b></p>
+<hr />
+<p><b>1.</b></p>                                                        
+<p id="pmtog">Pomaluj mnie na zielono.</p>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#pmtog").css("color", "green");
+});
+</script>
+
+
+<p><b>2.</b></p>
+<h3 class="pr1">Mój kolor nie powinien zostaæ zmieniony.</h3>
+<p class="pr1">Pomaluj mnie na czerwono.</p>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("p.pr1").css("color", "red");
+});
+</script>
+
+
+<p><b>3.</b></p>
+<input type="button" value="Pomaluj mnie na pomarañczowo" />
+<br /><br />
+<input type="text" value="Mój kolor nie powinien zostaæ zmieniony"/>
+<br /><br />
+<input type="submit" value="Mój kolor nie musi byæ zmieniany"/>
+<br /><br />
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(":button").css("color", "orange");
+});
+</script>
+
+<p><b>4.</b></p>
+<p class="pmb1">Pomaluj mnie na niebiesko.</p>
+<p>Mój kolor nie powinien zostaæ zmieniony.</p>
+<p>Mój kolor nie powinien zostaæ zmieniony.</p>
+<p class="pmb2">Pomaluj mnie na niebiesko.</p>
+<p>Mój kolor nie powinien zostaæ zmieniony.</p>
+<p class="pmb3">Pomaluj mnie na niebiesko.</p>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("p.pmb1, p.pmb2, p.pmb3").css("color", "blue");
+});
+</script>
+
+<p><b>5.Ostatni akapit p w div id ="wrap1" pomaluj na br¹zowo</p></b></p>
+<div id="wrap1">
+<p>Mój kolor nie powinien zostaæ zmieniony.</p>
+<p>Mój kolor nie powinien zostaæ zmieniony.</p>
+<p class="pmtobr">Pomaluj mnie na br¹zowo.</p>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#wrap1 .pmtobr").css("color", "brown");
+});
+</script>
+
+<p><b>6. Zdob¹dŸ pierwsze li w ka¿dym ol, pomaluj go na ¿ó³to.</b></p>
+<ol>
+    <li>Pomaluj mnie na ¿ó³to</li>
+    <li>Mój kolor nie powinien zostaæ zmieniony.</li>
+    <li>Mój kolor nie powinien zostaæ zmieniony.</li>
+</ol>
+<ol>
+    <li>Pomaluj mnie na ¿ó³to</li>
+    <li>Mój kolor nie powinien zostaæ zmieniony.</li>
+    <li>Mój kolor nie powinien zostaæ zmieniony.</li>
+</ol>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("li").first().css("color", "yellow");
+});
+</script>
+
+
+<p><b>7. Pomaluj wszystkie przyciski w nastêpnym div na czerwono</b></p>
+<div id="iwrap">
+<input type="button" value="Pomaluj mnie na czerwono" />
+<br /><br />
+<input type="text" value="Mój kolor nie powinien zostaæ zmieniony"/>
+<br /><br />
+<input type="submit" value="Pomaluj mnie na czerwono"/>
+</div>
+<div id="wrap2">
+
+<script type="text/javascript">
+$(document).ready(function(){
+$(":button, :submit").css("color", "red");
+});
+</script>
+
+
+    <p><b>8.Wszystkie nag³ówki NIE z klas¹ test</b></p>
+    <h1>Pomaluj mnie na zielono.</h1>
+    <h4>Pomaluj mnie na zielono.</h4>
+    <h2 class="test">Mój kolor nie powinien zostaæ zmieniony.</h2>
+</div>
+
+<div id="wrap3">
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("h1, h4").css("color", "green");
+});
+</script>
+
+    <p><b>9.Wszystkie h2, w których znajduje siê znacznik i pomaluj na ró¿owo.</b></p>
+    <h2>Pomaluj mnie na <i>ró¿owo</i>.</h2>
+    <h2>Pomaluj mnie na <b><i>ró¿owo</i></b>.</h2>
+    <h2>Mój kolor nie powinien zostaæ zmieniony.</h2>
+</div>
+
+ 
+    <div id="wrap4">
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("h2").has("i").css("color", "pink");
+});
+</script>
+
+
+
+        <p><b>10.Zmieñ zawartoœæ wszystkich li na ich numery.</b></p>
+        <ul>
+            <li>Zmieñ moje zawartoœci na numer</li>
+            <li>Zmieñ moje zawartoœci na numer.</li>
+            <li>Zmieñ moje zawartoœci na numer.</li>
+        </ul>
+    </div>    
+</body>
+</html>
