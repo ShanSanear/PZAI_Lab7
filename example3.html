@@ -1,117 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #code {
+            background-color: #fffDBD;
+            margin: 10px;
+            padding: 5px;
+        }
 
-<html>
-<head> 
-<style type="text/css">
-#code
-{
-background-color:#fffDBD;
-margin:10px;
-padding:5px;
-}
-.style1
-{
-	border-style: none;
-	color: red;
-	font-family: Times New Roman;
+        .style1 {
+            border-style: none;
+            color: red;
+            font-family: Times New Roman;
 
-}
-.style2{
-	color: blue;
-	font-family: Arial;
+        }
 
-}
-.style3{
-	color: blue;
-	font-family: Verbana;
-	font-weight: bold;
-	border: solid 1px;
+        .style2 {
+            color: blue;
+            font-family: Arial;
 
-}
-</style> 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript">   
-$(document).ready(function(){
-  
+        }
+
+        .style3 {
+            color: blue;
+            font-family: Verbana;
+            font-weight: bold;
+            border: solid 1px;
+
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.compatibility.js">-->
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
 
 
-});                                           
-</script> 
+        });
+    </script>
 </head>
 <body>
-<p><b>1.Po jednym klikniêciu przycisku o id = "but1" kolor tekstu akapitu o id = "par1" powinien zmieniæ siê na zielony, a jego rozmiar czcionki powinien wynosiæ 20px. Po dwukrotnym klikniêciu przycisku o id = "but1" formatowanie akapitu o id = "par1" powinno zostaæ zresetowane do standardowego.</b></p>
+<p><b>1.Po jednym klikniÄ™ciu przycisku o id = "but1" kolor tekstu akapitu o id = "par1" powinien zmieniÄ‡ siÄ™ na zielony,
+    a jego rozmiar czcionki powinien wynosiÄ‡ 20px. Po dwukrotnym klikniÄ™ciu przycisku o id = "but1" formatowanie akapitu
+    o id = "par1" powinno zostaÄ‡ zresetowane do standardowego.</b></p>
 <div id="code">
-<h3 id="par1">Jestem pierwszym tytu³em na stronie.</h3>
-<p id="par1">Jestem pierwszym akapitem na stronie.</p>
-<input id="but1" type="button" value="Kliknij na mnie" />
+    <h3 id="par1â€">Jestem pierwszym tytuÅ‚em na stronie.</h3>
+    <p id="par1">Jestem pierwszym akapitem na stronie.</p>
+    <input id="but1" type="button" value="Kliknij na mnie"/>
+
 </div>
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-$('#but1').click(function(){$('#par1').css('color','green').css('fontSize','20px');});
+    $(document).ready(function () {
+        $('#but1').click(function () {
+            if ($('#par1').is('[style]')) {
+                $('#par1').removeAttr('style');
+            } else {
+                $('#par1').css('color', 'green').css('fontSize', '20px');
+            }
+        });
 
-});
+    });
 </script>
 
 
-
-
-<p><b>2. Po najechaniu kursorem na link c id = "href1" jego kolor powinien zmieniæ siê na pomarañczowy. Gdy wskaŸnik myszy przekroczy swoje granice, link powinien zostaæ zresetowany do standardowego.</b></p>
+<p><b>2. Po najechaniu kursorem na link c id = "href1" jego kolor powinien zmieniÄ‡ siÄ™ na pomaraÅ„czowy. Gdy wskaÅºnik
+    myszy przekroczy swoje granice, link powinien zostaÄ‡ zresetowany do standardowego.</b></p>
 <div id="code">
-<a id="href1" href="https://www.w3schools.com/">www.w3schools.com</a>
+    <a id="href1" href="https://www.w3schools.com/">www.w3schools.com</a>
 </div>
 
 <script type="text/javascript">
-$(document).ready(function(){
-$('#href1').hover(function(){document.getElementById('href1').style.color ='orange';}).mouseout(function(){document.getElementById('href1').style.color = 'blue';});
-});
+    $(document).ready(function () {
+        $('#href1').hover(function () {
+            document.getElementById('href1').style.color = 'orange';
+        }).mouseout(function () {
+            document.getElementById('href1').style.color = 'blue';
+        });
+    });
 </script>
 
-<p><b>3. Gdy podœwietlasz tekst elementu id = "text1", jego kolor powinien zmieniæ siê na czerwony, a rozmiar czcionki powinien wynosiæ 20px.</b></p>
+<p><b>3. Gdy podÅ›wietlasz tekst elementu id = "text1", jego kolor powinien zmieniÄ‡ siÄ™ na czerwony, a rozmiar czcionki
+    powinien wynosiÄ‡ 20px.</b></p>
 <div id="code">
-<input type="text" id="text1" value="Zaznacz mój tekst" />
+    <input type="text" id="text1" value="Zaznacz mÃ³j tekst"/>
 </div>
 
 
-
 <script type="text/javascript">
-$(document).ready(function(){
-$('#text1').select(function(){$(this).css('color','red').css('fontSize','20px');});
-});
+    $(document).ready(function () {
+        $('#text1').select(function () {
+            $(this).css('color', 'red').css('fontSize', '20px');
+        });
+    });
 </script>
 
 
-
-<p><b>4. Za ka¿dym razem, gdy klikniesz przycisk o id = but2, uk³ad akapitu o id = par2 powinien zmieniæ siê w nastêpuj¹cy sposób:</b></p>
+<p><b>4. Za kaÅ¼dym razem, gdy klikniesz przycisk o id = but2, ukÅ‚ad akapitu o id = par2 powinien zmieniÄ‡ siÄ™ w
+    nastÄ™pujÄ…cy sposÃ³b:</b></p>
 <ul>
-	<li>Tekst powinien byæ wyœwietlany czcionk¹ Times New Roman na czerwono;</li>
-	<li>Tekst powinien byæ wyœwietlany czcionk¹ Arial na niebiesko;</li>
-	<li>Tekst powinien byæ wyœwietlany pogrubion¹ czcionk¹ Verdana, z ramk¹ o gruboœci 1 piksela (<i>u¿yj w³aœciwoœci font-weight: bold, aby utworzyæ tekst
-		pogrubienie i w³aœciwoœæ border-style, aby ustawiæ gruboœæ obramowania</i>)</li>
+    <li>Tekst powinien byÄ‡ wyÅ›wietlany czcionkÄ… Times New Roman na czerwono;</li>
+    <li>Tekst powinien byÄ‡ wyÅ›wietlany czcionkÄ… Arial na niebiesko;</li>
+    <li>Tekst powinien byÄ‡ wyÅ›wietlany pogrubionÄ… czcionkÄ… Verdana, z ramkÄ… o gruboÅ›ci 1 piksela (<i>uÅ¼yj wÅ‚aÅ›ciwoÅ›ci
+        font-weight: bold, aby utworzyÄ‡ tekst
+        pogrubienie i wÅ‚aÅ›ciwoÅ›Ä‡ border-style, aby ustawiÄ‡ gruboÅ›Ä‡ obramowania</i>)
+    </li>
 </ul>
 <div id="code">
-<p id="par2">Mój wygl¹d zmieni siê po ka¿dym klikniêciu przycisku poni¿ej.</p>
-<input id="but2" type="button" value="Zmiana wygl¹du akapitu" />
+    <p id="par2">MÃ³j wyglÄ…d zmieni siÄ™ po kaÅ¼dym klikniÄ™ciu przycisku poniÅ¼ej.</p>
+    <input id="but2" type="button" value="Zmiana wyglÄ…du akapitu"/>
 </div>
-<div id ="code">
+<div id="code">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#but2').click(function () {
+                    if ($('#par2').css('fontFamily') === 'Verdana' || $('#par2').css('fontFamily') === '') {
+                        $('#par2').removeAttr('style').css('fontFamily', 'Times New Roman').css('color', 'red').css('border', 'none');
+                    } else if ($('#par2').css('fontFamily') === '"Times New Roman"') {
+                        $('#par2').removeAttr('style').css('fontFamily', 'Arial').css('color', 'blue');
+                    } else {
+                        $('#par2').removeAttr('style').css('fontWeight', 'bold').css('fontFamily', 'Verdana').css('border', '1px').css('border-style', 'solid');
+                    }
+                }
+            )
+        });
+    </script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-$('#but2').toggle(function(){$('#par2').css('fontFamily','Times New Roman').css('color','red').css('border','none');},function(){$('#par2').css('fontFamily','Arial').css('color','blue');},function(){$('#par2').css('fontWeight','bold').css('fontFamily','Verdana').css('border','1px solid');});
-});
-</script>
 
-
-
-
-
-	<p><b>5. Dan ul, jest w nim kilka li. Za ka¿dym razem, gdy klikniesz przycisk o id = but3 dodaje nowy li z tekstem „akapit” na koñcu ul. Upewnij siê, ¿e klikniêcie ka¿dego li dodaje „!” Na koñcu. To powinno dzia³aæ dla nowo dodanego li. Rozwi¹¿ problem za pomoc¹ delegacji</b></p>
-	<ul class="one">
-		<li>Akapit 1</li>
-		<li>Akapit 2</li>
-		<li>Akapit 3</li>
-</ul>
-<input id="but3" type="button" value="Dodaj akapit"/>	
+    <p><b>5. Dan ul, jest w nim kilka li. Za kaÅ¼dym razem, gdy klikniesz przycisk o id = but3 dodaje nowy li z tekstem
+        â€akapitâ€ na koÅ„cu ul. Upewnij siÄ™, Å¼e klikniÄ™cie kaÅ¼dego li dodaje â€!â€ Na koÅ„cu. To powinno dziaÅ‚aÄ‡ dla nowo
+        dodanego li. RozwiÄ…Å¼ problem za pomocÄ… delegacji</b></p>
+    <ul class="one">
+        <li>Akapit 1</li>
+        <li>Akapit 2</li>
+        <li>Akapit 3</li>
+    </ul>
+    <input id="but3" type="button" value="Dodaj akapit"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#but3').click(function () {
+                $(".one").append('<li>akapit</li>');
+            })
+        });
+        $(document).ready(function () {
+            $('.one').on('click', 'li', function () {
+                console.log("Current inner html: " + this.innerHTML);
+                this.innerHTML += '!';
+                $(document).ready();
+            });
+        })
+    </script>
 </div>
 </body>
 </html>
