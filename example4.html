@@ -1,219 +1,247 @@
-
-<html>
+<html lang="en">
 <head>
-<style type="text/css">
-#code
-{
-background-color:#fffDBD;
-margin:10px;
-padding:5px;
-}
-#wrap1
-{
-border-style:solid;
-border-width:2px;
-height:200px;
-width:100px;
-}
-#wrap2
-{
-position:relative;
-border-style:solid;
-border-width:1px;
-height:400px;
-width:600px;
-}
-#redsquare
-{
-position:absolute;
-top:4px;
-left:4px;
-height:70px;
-width:70px;
-background-color:red;
-border-style:solid;
-border-width:1px;
-}
-#square1, #square2, #square3, #square4, #square5{
-position:absolute;
-height:80px;
-width:80px;
-border-style:solid;
-border-width:1px;
-}
-#square1
-{
-top:10px;
-left:200px;
-}
-#square1 b, #square2 b, #square3 b, #square4 b, #square5 b
-{
-font-size:60px;
-padding-left:8px;
-}
-#square2
-{
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #code {
+            background-color: #fffDBD;
+            margin: 10px;
+            padding: 5px;
+        }
 
-top:100px;
-left:400px;
-}
+        #wrap1 {
+            border-style: solid;
+            border-width: 2px;
+            height: 200px;
+            width: 100px;
+        }
 
-#square3
-{
-top:300px;
-left:500px;
-}
-#square4
-{
-top:300px;
-left:200px;
-}
+        #wrap2 {
+            position: relative;
+            border-style: solid;
+            border-width: 1px;
+            height: 400px;
+            width: 600px;
+        }
 
-#square5
-{
-top:100px;
-left:50px;
-}
-#accordeon {
-	width: 350px;
-	border: 10px solid #fff;
-	box-shadow: 0 0 10px grey;
-	margin: 10px;
-}
- 
-.acc-head {
-	padding: 5px 10px;
-	background: #c0c0c0;
-	cursor: pointer;
-}
- 
-.acc-body {
-	padding: 10px;
-	border-bottom: 1px solid #c0c0c0;
-	margin-bottom: 5px;
-	display: none;
-}
-</style>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript"> 
-$(document).ready(function(){
+        #redsquare {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            height: 70px;
+            width: 70px;
+            background-color: red;
+            border-style: solid;
+            border-width: 1px;
+        }
 
-});
-</script> 
+        #square1, #square2, #square3, #square4, #square5 {
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        #square1 {
+            top: 10px;
+            left: 200px;
+        }
+
+        #square1 b, #square2 b, #square3 b, #square4 b, #square5 b {
+            font-size: 60px;
+            padding-left: 8px;
+        }
+
+        #square2 {
+
+            top: 100px;
+            left: 400px;
+        }
+
+        #square3 {
+            top: 300px;
+            left: 500px;
+        }
+
+        #square4 {
+            top: 300px;
+            left: 200px;
+        }
+
+        #square5 {
+            top: 100px;
+            left: 50px;
+        }
+
+        #accordeon {
+            width: 350px;
+            border: 10px solid #fff;
+            box-shadow: 0 0 10px grey;
+            margin: 10px;
+        }
+
+        .acc-head {
+            padding: 5px 10px;
+            background: #c0c0c0;
+            cursor: pointer;
+        }
+
+        .acc-body {
+            padding: 10px;
+            border-bottom: 1px solid #c0c0c0;
+            margin-bottom: 5px;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
 </head>
 <body>
-<p><b>1. Po klikniêciu przycisku o id = but1 akapit z id = par1 powinien znikn¹æ, a po klikniêciu przycisku o id = but2 pojawi siê.</b></p>
+<p><b>1. Po klikniÄ™ciu przycisku o id = but1 akapit z id = par1 powinien zniknÄ…Ä‡, a po klikniÄ™ciu przycisku o id = but2
+    pojawi siÄ™.</b></p>
 <div id="code">
-<p id="par1" style="font-size:20px;">Kliknij przycisk poni¿ej, ja zniknê.</p>
-<input id="but1" type="button" value="Ukryj akapit" />
-<input id="but2" type="button" value="Poka¿ akapit" />
+    <p id="par1" style="font-size:20px;">Kliknij przycisk poniÅ¼ej, ja zniknÄ™.</p>
+    <input id="but1" type="button" value="Ukryj akapit"/>
+    <input id="but2" type="button" value="PokaÅ¼ akapit"/>
 </div>
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-$("#but1").click(function(){$("#par1").fadeOut('slow')});
+    $(document).ready(function () {
+        $("#but1").click(function () {
+            $("#par1").fadeOut('slow')
+        });
 
-$("#but2").click(function(){$("#par1").fadeIn('slow')});
-});
+        $("#but2").click(function () {
+            $("#par1").fadeIn('slow')
+        });
+    });
 </script>
 
-<p><b>2. Po najechaniu kursorem na akapit o id = par2 powinien on staæ siê przezroczysty (mo¿esz ustawiæ dowolne wartoœci przezroczystoœci,
-    ale konieczne jest, aby tekst by³ widoczny) w ci¹gu 3 sekund (3000 milisekund). Przesuwaj¹c kursor myszy poza akapit, powinien zwróciæ standardowe wartoœci przezroczystoœci.</b></p>
+<p><b>2. Po najechaniu kursorem na akapit o id = par2 powinien on staÄ‡ siÄ™ przezroczysty (moÅ¼esz ustawiÄ‡ dowolne
+    wartoÅ›ci przezroczystoÅ›ci,
+    ale konieczne jest, aby tekst byÅ‚ widoczny) w ciÄ…gu 3 sekund (3000 milisekund). PrzesuwajÄ…c kursor myszy poza
+    akapit, powinien zwrÃ³ciÄ‡ standardowe wartoÅ›ci przezroczystoÅ›ci.</b></p>
 <div id="code">
-<p id="par2">NajedŸ na mnie, ja stanê siê przezroczysty.</p>
+    <p id="par2">NajedÅº na mnie, ja stanÄ™ siÄ™ przezroczysty.</p>
 </div>
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-$("#par2").mouseover(function(){$(this).fadeTo('3000','0.5')}).mouseout(function(){$(this).fadeTo('3000','1')});
-});
+    $(document).ready(function () {
+        $("#par2").mouseover(function () {
+            $(this).fadeTo('3000', '0.5')
+        }).mouseout(function () {
+            $(this).fadeTo('3000', '1')
+        });
+    });
 </script>
 
 
-<p><b>3. Po klikniêciu przycisku o id = but3 wysokoœæ elementu wrap1 powinna siê zmniejszyæ do 0 w ci¹gu 5 sekund. Po klikniêciu przycisku o id = but4 element wrap1 musi zostaæ przywrócony do standardowej wysokoœci w ci¹gu 7 sekund.</b></p>
+<p><b>3. Po klikniÄ™ciu przycisku o id = but3 wysokoÅ›Ä‡ elementu wrap1 powinna siÄ™ zmniejszyÄ‡ do 0 w ciÄ…gu 5 sekund. Po
+    klikniÄ™ciu przycisku o id = but4 element wrap1 musi zostaÄ‡ przywrÃ³cony do standardowej wysokoÅ›ci w ciÄ…gu 7
+    sekund.</b></p>
 <div id="code">
-<div id="wrap1">
+    <div id="wrap1">
+    </div>
+    <br/>
+    <input id="but3" type="button" value="ZwiÅ„ element"/>
+    <input id="but4" type="button" value="RozwiÅ„ element"/>
 </div>
-<br />
-<input id="but3" type="button" value="Zwiñ element" />
-<input id="but4" type="button" value="Rozwiñ element" />
-</div>
-<hr />
+<hr/>
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-$("#but3").click(function(){$("#wrap1").slideUp(5000)});
+    $(document).ready(function () {
+        $("#but3").click(function () {
+            $("#wrap1").slideUp(5000)
+        });
 
-$("#but4").click(function(){$("#wrap1").slideDown(7000)});
+        $("#but4").click(function () {
+            $("#wrap1").slideDown(7000)
+        });
 
-});
+    });
 </script>
 
-<p><b>4. 
-Utwórz animacjê, przesuwaj¹c czerwony kwadrat jeden po drugim po wszystkich czarnych kwadratach z liczbami. Animacja powinna byæ aktywowana po klikniêciu przycisku o id = but5. </b></p>
+<p><b>4.
+    UtwÃ³rz animacjÄ™, przesuwajÄ…c czerwony kwadrat jeden po drugim po wszystkich czarnych kwadratach z liczbami. Animacja
+    powinna byÄ‡ aktywowana po klikniÄ™ciu przycisku o id = but5. </b></p>
 <div id="code">
-<input id="but5" type="button" value="Aktywuj animacjê" />
-<br /><br />
-<div id="wrap2">
-<div id="redsquare">
+    <input id="but5" type="button" value="Aktywuj animacjÄ™"/>
+    <br/><br/>
+    <div id="wrap2">
+        <div id="redsquare">
+        </div>
+        <div id="square1">
+            <b>1.</b>
+        </div>
+        <div id="square2">
+            <b>2.</b>
+        </div>
+        <div id="square3">
+            <b>3.</b>
+        </div>
+        <div id="square4">
+            <b>4.</b>
+        </div>
+        <div id="square5">
+            <b>5.</b>
+        </div>
+    </div>
 </div>
-<div id="square1">
-<b>1.</b>
-</div>
-<div id="square2">
-<b>2.</b>
-</div>
-<div id="square3">
-<b>3.</b>
-</div>
-<div id="square4">
-<b>4.</b>
-</div>
-<div id="square5">
-<b>5.</b>
-</div>
-</div> 
-</div>
-
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-$("#but5").click(function(){$("#redsquare")
-.animate({top:$("#square1").css('top'),left:$("#square1").css('left')},3000)
-.animate({top:$("#square2").css('top'),left:$("#square2").css('left')},3000)
-.animate({top:$("#square3").css('top'),left:$("#square3").css('left')},3000)
-.animate({top:$("#square4").css('top'),left:$("#square4").css('left')},3000)
-.animate({top:$("#square5").css('top'),left:$("#square5").css('left')},3000)
-});
+    $(document).ready(function () {
+        $("#but5").click(function () {
+            $("#redsquare")
+                .animate({top: $("#square1").css('top'), left: $("#square1").css('left')}, 1000)
+                .animate({top: $("#square2").css('top'), left: $("#square2").css('left')}, 1000)
+                .animate({top: $("#square3").css('top'), left: $("#square3").css('left')}, 1000)
+                .animate({top: $("#square4").css('top'), left: $("#square4").css('left')}, 1000)
+                .animate({top: $("#square5").css('top'), left: $("#square5").css('left')}, 1000)
+        })
+    });
 </script>
 
 
-
-<p><b>5. Zaimplementuj akordeon. Kiedy klikamy nag³ówek (.acc-header)
-wykonywana jest funkcja, która szuka bloku tekstu nastêpuj¹cego po nag³ówku (.acc-body) i albo go otwiera (jeœli jest ukryty), albo ukrywa, jeœli jest zamkniêty. Do prze³¹czania u¿yj funkcji slideToggle ().</b></p>
+<p><b>5. Zaimplementuj akordeon. Kiedy klikamy nagÅ‚Ã³wek (.acc-header)
+    wykonywana jest funkcja, ktÃ³ra szuka bloku tekstu nastÄ™pujÄ…cego po nagÅ‚Ã³wku (.acc-body) i albo go otwiera (jeÅ›li
+    jest ukryty), albo ukrywa, jeÅ›li jest zamkniÄ™ty. Do przeÅ‚Ä…czania uÅ¼yj funkcji slideToggle ().</b></p>
 <div id="accordeon">
     <div class="acc-head">
-        Tytu³ 1
+        TytuÅ‚ 1
     </div>
     <div class="acc-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate,
+        quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
     </div>
     <div class="acc-head">
-        Tytu³ 2
+        TytuÅ‚ 2
     </div>
     <div class="acc-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate,
+        quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
     </div>
     <div class="acc-head">
-        Tytu³ 3
+        TytuÅ‚ 3
     </div>
     <div class="acc-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt, quidem quis illo cupiditate,
+        quod maxime. Tenetur, ex quos. Magnam quasi iure facere minus velit voluptate accusamus hic!
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".acc-head").click(function () {
+            $(this).next().slideToggle();
+        });
+    });
+</script>
 </body>
 </html>
