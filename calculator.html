@@ -1,0 +1,249 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .display {
+            margin-top: 15px;
+            height: 70px;
+            width: 100%;
+            border-style: none;
+            text-align: right;
+            font-size: 3em;
+            font-weight: bold;
+            border-bottom: solid;
+            border-width: 1px;
+        }
+
+        .calculator {
+            border-radius: 4px;
+            height: 470px;
+            background-color: white;
+        }
+
+        .buttons {
+            width: 100%;
+            margin-top: 15px;
+            position: relative;
+            left: 5%;
+        }
+
+        .btn-default {
+            border-style: none;
+            font-weight: bold;
+            font-size: 1.5EM;
+            width: 20%;
+            margin: 5px;
+            height: 60px;
+        }
+
+        .btn-default:focus, .btn-default:active {
+            outline: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .calculator {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+    <script>
+        window.console = window.console || function (t) {
+        };
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+<body translate="no">
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-6
+                  col-xs-offset-2  col-sm-offset-2  col-md-offset-2 col-lg-offset-3 calculator">
+                <input type="text" readonly="" alt="display area" class="display">
+                <div class="buttons">
+                    <button type="button" class="btn btn-default" id="btn-AC">CE</button>
+                    <button type="button" class="btn btn-default" id="btn-CE">C</button>
+                    <button type="button" class="btn btn-default" id="btn-percent">&lt;</button>
+                    <button type="button" class="btn btn-default" id="btn-slash">/</button>
+                    <button type="button" class="btn btn-default" id="btn-seven">7</button>
+                    <button type="button" class="btn btn-default" id="btn-eight">8</button>
+                    <button type="button" class="btn btn-default" id="btn-nine">9</button>
+                    <button type="button" class="btn btn-default" id="btn-multiplication">*</button>
+                    <button type="button" class="btn btn-default" id="btn-four">4</button>
+                    <button type="button" class="btn btn-default" id="btn-five">5</button>
+                    <button type="button" class="btn btn-default" id="btn-six">6</button>
+                    <button type="button" class="btn btn-default" id="btn-minus">-</button>
+                    <button type="button" class="btn btn-default" id="btn-one">1</button>
+                    <button type="button" class="btn btn-default" id="btn-two">2</button>
+                    <button type="button" class="btn btn-default" id="btn-three">3</button>
+                    <button type="button" class="btn btn-default" id="btn-plus">+</button>
+                    <button type="button" class="btn btn-default" id="btn-negative">+-</button>
+                    <button type="button" class="btn btn-default" id="btn-zero">0</button>
+                    <button type="button" class="btn btn-default" id="btn-comma">,</button>
+                    <button type="button" class="btn btn-default" id="btn-equal">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+<script id="rendered-js">
+    $(document).ready(function () {
+        const regex = /[\/%\*\+\-0-9,]|CE|C/g;
+        const operators = /[,\/\*\+\-]/g;
+        const properOperators = /[\/\*\+\-]/g;
+        const display = $(".display");
+        let calculation = "";
+        let currentData = "";
+        let countOperators = 0;
+        let previousOperation = "0";
+
+        $(document).bind('keypress', function (e) {
+
+            var currentData = String.fromCharCode(e.keyCode);
+            calculation = processCalculation(currentData, calculation, regex, operators);
+            display.val(calculation);
+        });
+
+        $("button").click(function () {
+
+            currentData = $(this).text();
+            calculation = processCalculation(currentData, calculation, regex, operators);
+            display.val(calculation);
+        });
+
+        function processCalculation(currentData, calculation, regex, operators) {
+            if (currentData === "+-") {
+                if (calculation.charAt(0) === "-") {
+                    return calculation.slice(1);
+                } else {
+                    return "-" + calculation;
+                }
+            } else if (currentData === "<") {
+                return calculation.slice(0, -1);
+            }
+            if (currentData.match(regex) != null &&
+                currentData.match(regex).toString() === currentData ||
+                currentData === "=" || currentData.match(/\+-/)) {
+
+                const validatedData = validateData(currentData, operators, calculation);
+
+                if (validatedData === "C") {
+
+                    calculation = "";
+                } else if (validatedData === "CE") {
+
+                    calculation = previousOperation;
+                } else if (validatedData === "Operation") {
+                    calculation = processOperation(currentData, calculation);
+                } else if (validatedData === "+-") {
+                    if (calculation.charAt(0) === "-") {
+                        return calculation.replace("-", "");
+                    } else {
+                        return "-" + calculation;
+                    }
+                } else {
+                    calculation += validatedData;
+                }
+            }
+            return calculation;
+        }
+
+        function validateData(currentData, operators, calculation) {
+            let processedData = "";
+            if (calculation.charAt(calculation.length - 1).match(operators) &&
+                currentData.match(operators) ||
+                calculation.length === 0 &&
+                currentData.match(operators)) {
+
+                processedData = "";
+            } else if (currentData.match(properOperators) || currentData === "=") {
+
+                countOperators++;
+                if (currentData === "=") {
+                    processedData = "Operation";
+                    countOperators = 0;
+                } else if (countOperators === 2) {
+                    processedData = "Operation";
+                    countOperators = 1;
+                } else {
+                    processedData = currentData;
+                }
+            } else if (currentData === "C") {
+
+                processedData = "C";
+            } else if (currentData === "CE") {
+
+                processedData = "CE";
+            } else {
+                processedData = currentData;
+            }
+            return processedData;
+        }
+
+        function processOperation(currentData, calculation) {
+
+            previousOperation = calculation;
+            calculation = calculation.replace(/,/g, ".");
+            let currentOperation = "";
+            let isNegative = false;
+
+            if (calculation.charAt(0) === "-") {
+                calculation = calculation.slice(1);
+                isNegative = true;
+            }
+            currentOperation = properOperators.exec(calculation);
+            currentOperation = currentOperation[0];
+
+            const splitCalculation = calculation.split(currentOperation);
+            if (isNegative) {
+                splitCalculation[0] = -Math.abs(splitCalculation[0]);
+            }
+
+            if (splitCalculation[1] === "") {
+                return "-" + calculation;
+            }
+
+            switch (currentOperation) {
+                case "+":
+                    calculation = parseFloat(splitCalculation[0]) + parseFloat(splitCalculation[1]);
+                    break;
+                case "*":
+                    calculation = parseFloat(splitCalculation[0]) * parseFloat(splitCalculation[1]);
+                    break;
+                case "/":
+                    calculation = parseFloat(splitCalculation[0]) / parseFloat(splitCalculation[1]);
+                    break;
+                case "-":
+                    calculation = parseFloat(splitCalculation[0]) - parseFloat(splitCalculation[1]);
+                    break;
+            }
+            calculation = calculation.toString().replace(/\./g, ",");
+            if (currentData === "=") {
+                return calculation;
+            } else {
+                return calculation + currentData;
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>
