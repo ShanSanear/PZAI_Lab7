@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{bootstrap, jquery-2.2.4, jquery-3.4.1, jquery-3.5.1, jquery-easing, jquery-ui, stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147}" />
+  </component>
+</project>
